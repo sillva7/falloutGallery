@@ -11,56 +11,6 @@
     android:background="@drawable/ic_launcher_background"
     >
 
-    <ImageView
-        android:id="@+id/uploadIV"
-        android:layout_weight="90"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-
-        />
-
-    <TextView
-        android:id="@+id/TV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_weight="1"
-        android:text="OLOLOLO"
-        android:textSize="20dp"
-        android:textColor="#000"
-        android:background="#fff"
-
-        android:gravity="center_horizontal" />
-
-    <LinearLayout
-        android:layout_marginTop="10dp"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_weight="1"
-            android:id="@+id/uploadBTN"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Upload"
-            android:layout_gravity=""
-            android:layout_marginRight="50dp"/>
-        <Button
-            android:layout_weight="1"
-            android:onClick="BUM"
-            android:id="@+id/downloadBTN"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Download"
-
-            />
-
-    </LinearLayout>
 
 
 </LinearLayout>
