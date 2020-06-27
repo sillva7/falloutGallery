@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    tools:context=".inTheCard">
+    <TextView
+        android:id="@+id/innerTitle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/border"
+        android:text="TITLE"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:gravity="center"
+        />
+
+    <ImageView
+        android:id="@+id/innerIV"
+        android:layout_marginTop="10dp"
+        android:layout_weight="9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to your quest's"
+        android:onClick="addToYourQuests"
+        />
+
+
+</LinearLayout>
