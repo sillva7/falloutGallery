@@ -18,6 +18,7 @@ import com.example.falloutgallery.inTheCard;
 import java.util.ArrayList;
 
 public class AdapterForYourQuests extends RecyclerView.Adapter<AdapterForYourQuests.RecyclerViewViewHolder> {
+
     private ArrayList<CardItem> arrayList;
     private Context context;
 
@@ -30,17 +31,17 @@ public class AdapterForYourQuests extends RecyclerView.Adapter<AdapterForYourQue
             super(itemView);
             itemView.setOnClickListener(this);
 
-            imageView =itemView.findViewById(R.id.imageView);
+            imageView = itemView.findViewById(R.id.imageView);
             textView = itemView.findViewById(R.id.textView1);
         }
 
         @Override
-        public void onClick(View v){
+        public void onClick(View v) {
             int position = getAdapterPosition();
             CardItem cardItem = arrayList.get(position);
 
             Intent intent = new Intent(context, inTheCard.class);
-            intent.putExtra("imgRsrc",cardItem.getImgRsrc());
+            intent.putExtra("imgRsrc", cardItem.getImgRsrc());
             intent.putExtra("title", cardItem.getTitle());
 
             context.startActivity(intent);
@@ -55,14 +56,14 @@ public class AdapterForYourQuests extends RecyclerView.Adapter<AdapterForYourQue
 
     @NonNull
     @Override
-    public AdapterForYourQuests.RecyclerViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_layot, parent,false);
-        AdapterForYourQuests.RecyclerViewViewHolder recyclerViewViewHolder = new AdapterForYourQuests.RecyclerViewViewHolder(view);
+    public RecyclerViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_layot, parent, false);
+        RecyclerViewViewHolder recyclerViewViewHolder = new RecyclerViewViewHolder(view);
 
         return recyclerViewViewHolder;
     }
 
-    public void onBindViewHolder(@NonNull AdapterForYourQuests.RecyclerViewViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerViewViewHolder holder, int position) {
         CardItem cardItem = arrayList.get(position);
         holder.imageView.setImageResource(cardItem.getImgRsrc());
         holder.textView.setText(cardItem.getTitle());

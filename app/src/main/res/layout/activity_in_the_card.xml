@@ -19,19 +19,37 @@
         android:textSize="20dp"
         android:gravity="center"
         />
-
     <ImageView
         android:id="@+id/innerIV"
         android:layout_marginTop="10dp"
         android:layout_weight="9"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add to your quest's"
-        android:onClick="addToYourQuests"
-        />
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <Button
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Add to your quest's"
+            android:onClick="addToYourQuests"
+            />
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="To your quests"
+            android:onClick="toYoursQuest"
+            />
+
+
+    </LinearLayout>
+
+
 
 
 </LinearLayout>

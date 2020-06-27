@@ -31,17 +31,17 @@ public class AdapterForQuestList extends RecyclerView.Adapter<AdapterForQuestLis
             super(itemView);
             itemView.setOnClickListener(this);
 
-            imageView =itemView.findViewById(R.id.imageView);
+            imageView = itemView.findViewById(R.id.imageView);
             textView = itemView.findViewById(R.id.textView1);
         }
 
         @Override
-        public void onClick(View v){
+        public void onClick(View v) {
             int position = getAdapterPosition();
             CardItem cardItem = arrayList.get(position);
 
             Intent intent = new Intent(context, inTheCard.class);
-            intent.putExtra("imgRsrc",cardItem.getImgRsrc());
+            intent.putExtra("imgRsrc", cardItem.getImgRsrc());
             intent.putExtra("title", cardItem.getTitle());
 
             context.startActivity(intent);
@@ -57,7 +57,7 @@ public class AdapterForQuestList extends RecyclerView.Adapter<AdapterForQuestLis
     @NonNull
     @Override
     public RecyclerViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_layot, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_layot, parent, false);
         RecyclerViewViewHolder recyclerViewViewHolder = new RecyclerViewViewHolder(view);
 
         return recyclerViewViewHolder;
