@@ -6,17 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="5dp"
-    tools:context=".inTheCard">
+    android:padding="3dp"
+    tools:context=".inTheCard"
+
+    >
     <TextView
         android:id="@+id/innerTitle"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:background="@drawable/border"
         android:text="TITLE"
         android:textColor="#000"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:gravity="center"
         />
     <ImageView
@@ -26,28 +28,41 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
     <LinearLayout
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
         android:layout_weight="1">
+
         <Button
-            android:layout_marginRight="20dp"
+            android:id="@+id/addBTN"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Add to your quest's"
+            android:text="Add"
             android:onClick="addToYourQuests"
+            android:background="#30A622"
             />
         <Button
+            android:id="@+id/removeBTN"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="To your quests"
-            android:onClick="toYoursQuest"
+            android:text="Remove"
+            android:onClick="removeFromYourQuests"
+            android:background="#AA2B2B"
             />
-
-
+        <Button
+            android:id="@+id/goToYourQuests"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Your quests"
+            android:onClick="toYoursQuest"
+            android:background="#6A6565"
+            />
     </LinearLayout>
+
 
 
 

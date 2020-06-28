@@ -17,18 +17,17 @@ public class YourQuests extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    public static ArrayList<CardItem> cardItems = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_quests);
 
-        ArrayList<CardItem> cardItems = new ArrayList<>();
+
 
         Intent intent = getIntent();
 
-        CardItem cardItem = new CardItem(intent.getIntExtra("imgRsrc", 0), intent.getStringExtra("title"));
-        cardItems.add(cardItem);
 
         recyclerView = findViewById(R.id.recyclerViewOfYourQuests);
         adapter = new AdapterForYourQuests(cardItems, this);

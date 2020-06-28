@@ -43,6 +43,8 @@ public class AdapterForYourQuests extends RecyclerView.Adapter<AdapterForYourQue
             Intent intent = new Intent(context, inTheCard.class);
             intent.putExtra("imgRsrc", cardItem.getImgRsrc());
             intent.putExtra("title", cardItem.getTitle());
+            intent.putExtra("whereFromThisIntent", "AdapterForYourQuests");
+
 
             context.startActivity(intent);
         }
