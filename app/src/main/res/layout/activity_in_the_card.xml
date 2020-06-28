@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="3dp"
-    tools:context=".inTheCard"
+    tools:context="com.example.falloutgallery.inTheCard"
 
     >
     <TextView
@@ -21,7 +21,7 @@
         android:textSize="18dp"
         android:gravity="center"
         />
-    <ImageView
+    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
         android:id="@+id/innerIV"
         android:layout_marginTop="10dp"
         android:layout_weight="9"

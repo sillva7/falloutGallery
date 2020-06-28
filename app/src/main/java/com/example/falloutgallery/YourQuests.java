@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.falloutgallery.adapters.AdapterForQuestList;
 import com.example.falloutgallery.adapters.AdapterForYourQuests;
 import com.example.falloutgallery.classes.CardItem;
 

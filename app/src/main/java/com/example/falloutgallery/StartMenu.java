@@ -2,14 +2,9 @@ package com.example.falloutgallery;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import com.example.falloutgallery.classes.CardItem;
-
-import java.util.ArrayList;
 
 public class StartMenu extends AppCompatActivity {
 

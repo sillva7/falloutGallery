@@ -1,16 +1,21 @@
 package com.example.falloutgallery;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NavUtils;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.example.falloutgallery.classes.CardItem;
 
 public class inTheCard extends AppCompatActivity {
@@ -27,8 +32,10 @@ public class inTheCard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_in_the_card);
 
-        ImageView imageView = findViewById(R.id.innerIV);
+        SubsamplingScaleImageView imageView = findViewById(R.id.innerIV);
         TextView textView = findViewById(R.id.innerTitle);
+
+
         addBTN = findViewById(R.id.addBTN);
         removeBTN = findViewById(R.id.removeBTN);
         goToYourQuests = findViewById(R.id.goToYourQuests);
@@ -36,22 +43,24 @@ public class inTheCard extends AppCompatActivity {
 
         intent = getIntent();
 
-        if (intent.getStringExtra("whereFromThisIntent").equals("AdapterForQuestList")) {
 
-            addBTN.setVisibility(View.VISIBLE);
-            removeBTN.setVisibility(View.GONE);
-
-        }else if(intent.getStringExtra("whereFromThisIntent").equals("AdapterForYourQuests")){
-
-            removeBTN.setVisibility(View.VISIBLE);
-            addBTN.setVisibility(View.GONE);
-
-        }
 
 
         if (intent != null) {
+
+            if (intent.getStringExtra("whereFromThisIntent").equals("AdapterForQuestList")) {
+
+                addBTN.setVisibility(View.VISIBLE);
+                removeBTN.setVisibility(View.GONE);
+
+            }else if(intent.getStringExtra("whereFromThisIntent").equals("AdapterForYourQuests")){
+
+                removeBTN.setVisibility(View.VISIBLE);
+                addBTN.setVisibility(View.GONE);
+
+            }
             textView.setText(intent.getStringExtra("title"));
-            imageView.setImageResource(intent.getIntExtra("imgRsrc", 0));
+            imageView.setImage(ImageSource.resource(intent.getIntExtra("imgRsrc", 0)));
         }
 
         intentToYourQuests = new Intent(inTheCard.this, YourQuests.class);
@@ -67,7 +76,7 @@ public class inTheCard extends AppCompatActivity {
         intentToYourQuests.putExtra("imgRsrc", cardItem.getImgRsrc());
         intentToYourQuests.putExtra("title", cardItem.getTitle());
 
-        Toast.makeText(this, "ADDED", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "ADDED", Toast.LENGTH_SHORT).show();
 
 
     }
@@ -86,7 +95,9 @@ public class inTheCard extends AppCompatActivity {
             }
         }
 
-        Toast.makeText(this, "REMOVED", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "REMOVED", Toast.LENGTH_SHORT).show();
 
     }
+
+
 }
