@@ -2,7 +2,7 @@ package com.example.falloutgallery;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NavUtils;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.example.falloutgallery.classes.CardItem;
+import com.example.falloutgallery.classes.MyDialogFragment;
 
 public class inTheCard extends AppCompatActivity {
     Context context;
@@ -40,10 +41,12 @@ public class inTheCard extends AppCompatActivity {
         removeBTN = findViewById(R.id.removeBTN);
         goToYourQuests = findViewById(R.id.goToYourQuests);
 
+        addBTN.setText(getResources().getString(R.string.AddBTN));
+        removeBTN.setText(getResources().getString(R.string.RemoveBTN));
+        goToYourQuests.setText(getResources().getString(R.string.YourQuests));
+
 
         intent = getIntent();
-
-
 
 
         if (intent != null) {
@@ -53,7 +56,7 @@ public class inTheCard extends AppCompatActivity {
                 addBTN.setVisibility(View.VISIBLE);
                 removeBTN.setVisibility(View.GONE);
 
-            }else if(intent.getStringExtra("whereFromThisIntent").equals("AdapterForYourQuests")){
+            } else if (intent.getStringExtra("whereFromThisIntent").equals("AdapterForYourQuests")) {
 
                 removeBTN.setVisibility(View.VISIBLE);
                 addBTN.setVisibility(View.GONE);
@@ -76,7 +79,7 @@ public class inTheCard extends AppCompatActivity {
         intentToYourQuests.putExtra("imgRsrc", cardItem.getImgRsrc());
         intentToYourQuests.putExtra("title", cardItem.getTitle());
 
-        Toast.makeText(this, "ADDED", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.added), Toast.LENGTH_SHORT).show();
 
 
     }
@@ -95,9 +98,44 @@ public class inTheCard extends AppCompatActivity {
             }
         }
 
-        Toast.makeText(this, "REMOVED", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.removed), Toast.LENGTH_SHORT).show();
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intentBackPressed;
+        if (intent.getStringExtra("whereFromThisIntent").equals("AdapterForQuestList")) {
 
+            intentBackPressed = new Intent(this, QuestList.class);
+            startActivity(intentBackPressed);
+
+        } else if (intent.getStringExtra("whereFromThisIntent").equals("AdapterForYourQuests")) {
+
+            intentBackPressed = new Intent(this, YourQuests.class);
+            startActivity(intentBackPressed);
+
+        }
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {//меню
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {//создание меню и всплывающего окна
+        switch (item.getItemId()) {
+
+            case R.id.about:
+                FragmentManager manager = getSupportFragmentManager();
+                MyDialogFragment myDialogFragment = new MyDialogFragment();
+                myDialogFragment.show(manager, "myDialog");
+                return true;
+            case R.id.home:
+                startActivity(new Intent(this, StartMenu.class));
+                return true;
+        }
+        return true;
+    }
 }

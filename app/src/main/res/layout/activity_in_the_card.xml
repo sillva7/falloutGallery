@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="3dp"
+    android:paddingHorizontal="3dp"
+    android:paddingTop="3dp"
     tools:context="com.example.falloutgallery.inTheCard"
 
     >
@@ -20,19 +21,21 @@
         android:textStyle="bold"
         android:textSize="18dp"
         android:gravity="center"
+
         />
     <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
         android:id="@+id/innerIV"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="3dp"
         android:layout_weight="9"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
     <LinearLayout
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        >
 
         <Button
             android:id="@+id/addBTN"
@@ -41,7 +44,7 @@
             android:layout_height="wrap_content"
             android:text="Add"
             android:onClick="addToYourQuests"
-            android:background="#30A622"
+            android:background="#3AB12C"
             />
         <Button
             android:id="@+id/removeBTN"
@@ -50,7 +53,7 @@
             android:layout_height="wrap_content"
             android:text="Remove"
             android:onClick="removeFromYourQuests"
-            android:background="#AA2B2B"
+            android:background="#C83939"
             />
         <Button
             android:id="@+id/goToYourQuests"
@@ -59,7 +62,7 @@
             android:layout_height="wrap_content"
             android:text="Your quests"
             android:onClick="toYoursQuest"
-            android:background="#6A6565"
+            android:background="#807979"
             />
     </LinearLayout>
 

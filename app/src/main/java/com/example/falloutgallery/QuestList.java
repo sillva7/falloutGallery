@@ -1,13 +1,19 @@
 package com.example.falloutgallery;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.falloutgallery.adapters.AdapterForQuestList;
 import com.example.falloutgallery.classes.CardItem;
+import com.example.falloutgallery.classes.MyDialogFragment;
 
 import java.util.ArrayList;
 
@@ -39,6 +45,28 @@ public class QuestList extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
 
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {//меню
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {//создание меню и всплывающего окна
+        switch (item.getItemId()) {
+
+            case R.id.about:
+                FragmentManager manager = getSupportFragmentManager();
+                MyDialogFragment myDialogFragment = new MyDialogFragment();
+                myDialogFragment.show(manager, "myDialog");
+                return true;
+            case R.id.home:
+                startActivity(new Intent(this, StartMenu.class));
+                return true;
+
+        }
+        return true;
     }
 
 

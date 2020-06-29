@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Fallout quest\'s</string>
+    <string name="YourQuests">Ваши квесты</string>
+    <string name="QuestList">Полный список квестов</string>
+    <string name="AddBTN">добавить в список</string>
+    <string name="RemoveBTN">удалить из списка</string>
+    <string name="added">ДОБАВЛЕНО</string>
+    <string name="removed">УДАЛЕНО</string>
+    <string name="contacts">Контакты</string>
+    <string name="about">Это приложение для настольной игры Fallout. Удобный способ формировать свой пул квестов.
+        \n\nЧтобы не забирать карточки у других игроков, чтобы не тянуться через весь стол, чтобы вдоль и поперёк прочитать квест, не мешая другим.
+        \n\nВы можете написать мне как улучшить приложение или сообщить о каких-то багах или несовместимостях по адресу:
+
+        \n\nEmail: isi2lva@gmail.com
+
+        \nVkontakte: vk.com/sillva
+
+        \nВаш начинающий разработчик, Sillva
+    </string>
+
+</resources>

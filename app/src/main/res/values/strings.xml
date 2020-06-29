@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">FalloutGallery</string>
+    <string name="app_name">Fallout quest\'s</string>
+    <string name="YourQuests">Your quest\'s</string>
+    <string name="QuestList">Full quest list</string>
+    <string name="AddBTN">add</string>
+    <string name="RemoveBTN">remove</string>
+    <string name="added">ADDED</string>
+    <string name="removed">REMOVED</string>
+    <string name="contacts">Contacts</string>
+
+    <string name="about">This programm for Fallout table game. Easiest way to form your quest pool.
+\nYou can tell my how to improve this app by text me:
+
+\n\nEmail: isi2lva@gmail.com
+
+\nVkontakte: vk.com/sillva
+
+
+    \nFeel free to contact, beginner developer, Sillva </string>
 </resources>
