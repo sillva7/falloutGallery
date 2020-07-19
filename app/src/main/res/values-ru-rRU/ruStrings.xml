@@ -11,6 +11,8 @@
     <string name="contacts">Контакты</string>
     <string name="search">Поиск</string>
     <string name="show_all_quests">Показать обратно все квесты</string>
+    <string name="q_2_in_row">Сменить вид</string>
+
 
 
     <string name="about">Это приложение для настольной игры Fallout. Удобный способ формировать свой пул квестов.

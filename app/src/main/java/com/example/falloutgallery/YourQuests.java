@@ -3,6 +3,7 @@ package com.example.falloutgallery;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.falloutgallery.adapters.AdapterForYourQuests;
 import com.example.falloutgallery.classes.CardItem;
@@ -32,8 +34,11 @@ public class YourQuests extends AppCompatActivity {
         Intent intent = getIntent();
 
 
+
         recyclerView = findViewById(R.id.recyclerViewOfYourQuests);
         adapter = new AdapterForYourQuests(cardItems, this);
+
+
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setAdapter(adapter);
@@ -66,4 +71,31 @@ public class YourQuests extends AppCompatActivity {
     }
 
 
+    public void changeView(View view) {
+        if(Utils.VIEW){
+            Utils.VIEW=false;
+
+            recyclerView = findViewById(R.id.recyclerViewOfYourQuests);
+            adapter = new AdapterForYourQuests(cardItems, this);
+
+
+            layoutManager = new LinearLayoutManager(this);
+
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(layoutManager);
+
+        }else{
+            Utils.VIEW=true;
+            adapter = new AdapterForYourQuests(cardItems, this);
+
+
+            layoutManager = new GridLayoutManager(this, 2);
+
+
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(layoutManager);
+        }
+
+
+    }
 }

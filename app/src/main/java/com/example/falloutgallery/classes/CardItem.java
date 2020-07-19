@@ -20,6 +20,7 @@ public class CardItem {
         this.title = title;
     }
 
+
     public int getImgRsrc() {
         return imgRsrc;
     }
@@ -27,4 +28,5 @@ public class CardItem {
     public String getTitle() {
         return title;
     }
+
 }
