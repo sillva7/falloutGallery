@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -16,6 +17,8 @@ import com.example.falloutgallery.classes.CardItem;
 import com.example.falloutgallery.classes.MyDialogFragment;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class QuestList extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -28,15 +31,29 @@ public class QuestList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quest_list);
 
-        ArrayList<CardItem> cardItems = new ArrayList<>();
 
-        cardItems.add(new CardItem(R.drawable.qqqqq, "001"));
-        cardItems.add(new CardItem(R.drawable.qqqqq, "002"));
-        cardItems.add(new CardItem(R.drawable.qqqqq, "003"));
-        cardItems.add(new CardItem(R.drawable.qqqqq, "004"));
-        cardItems.add(new CardItem(R.drawable.qqqqq, "005"));
-        cardItems.add(new CardItem(R.drawable.qqqqq, "006"));
-        cardItems.add(new CardItem(R.drawable.qqqqq, "007"));
+        ArrayList<CardItem> cardItems = new ArrayList<>();
+        String draId = getResources().getResourceEntryName(R.drawable.f14);//имя картинки
+        int imageKey = getResources().getIdentifier("f" + 14, "drawable", getPackageName());//код картинки
+        Map<String, Integer> allImages = new HashMap<>();
+        for (int i = 0; i < 238; i++) {
+            if (getResources().getIdentifier("f" + i, "drawable", getPackageName()) != 0) {
+                allImages.put("" + i, getResources().getIdentifier("f" + i, "drawable", getPackageName()));
+            } else {
+            }
+        }
+        for (int i = 0; i < 238; i++) {
+            if (allImages.get("" + i) != null) {
+                cardItems.add(new CardItem(allImages.get("" + i), "" + i));
+            } else {
+            }
+        }
+
+
+//            int[] myImageList = new int[]{R.drawable.f14};
+        Log.d("shoow", allImages + "");
+        Log.d("shoow", allImages.size() + "");
+
 
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new AdapterForQuestList(cardItems, this);
@@ -46,6 +63,7 @@ public class QuestList extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {//меню
         getMenuInflater().inflate(R.menu.main_menu, menu);
 
@@ -68,8 +86,6 @@ public class QuestList extends AppCompatActivity {
         }
         return true;
     }
-
-
 
 
 }

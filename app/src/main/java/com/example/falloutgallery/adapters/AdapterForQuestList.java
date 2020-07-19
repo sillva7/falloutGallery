@@ -19,8 +19,9 @@ import java.util.ArrayList;
 
 public class AdapterForQuestList extends RecyclerView.Adapter<AdapterForQuestList.RecyclerViewViewHolder> {
 
+
     private ArrayList<CardItem> arrayList;
-    private Context context;
+    private Context context;//активити с адаптером
 
     public class RecyclerViewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -29,7 +30,7 @@ public class AdapterForQuestList extends RecyclerView.Adapter<AdapterForQuestLis
 
         public RecyclerViewViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
+            itemView.setOnClickListener(this);//какой бы не был классЭлемента в нём будет возможность делать клики
 
             imageView = itemView.findViewById(R.id.imageView);
             textView = itemView.findViewById(R.id.textView1);
@@ -59,7 +60,7 @@ public class AdapterForQuestList extends RecyclerView.Adapter<AdapterForQuestLis
 
     @NonNull
     @Override
-    public RecyclerViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {//переносим сюда макет класса кардвью
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_layot, parent, false);
         RecyclerViewViewHolder recyclerViewViewHolder = new RecyclerViewViewHolder(view);
 

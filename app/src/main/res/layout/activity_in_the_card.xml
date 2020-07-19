@@ -23,12 +23,18 @@
         android:gravity="center"
 
         />
+
     <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
         android:id="@+id/innerIV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="3dp"
         android:layout_weight="9"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+
+         />
+
+
+
     <LinearLayout
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
