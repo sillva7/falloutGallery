@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.falloutgallery.adapters.AdapterForQuestList;
 import com.example.falloutgallery.classes.CardItem;
@@ -24,18 +27,25 @@ public class QuestList extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-
+    private EditText searchET;
+    private Button searchBTN, backBTN;
+    private Map<String, Integer> allImages;
+    private ArrayList<CardItem> cardItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quest_list);
 
+        searchBTN = findViewById(R.id.searchBTN);
+        searchET = findViewById(R.id.searchET);
+        recyclerView = findViewById(R.id.recyclerView);
+        backBTN = findViewById(R.id.backBTN);
 
-        ArrayList<CardItem> cardItems = new ArrayList<>();
-        String draId = getResources().getResourceEntryName(R.drawable.f14);//имя картинки
-        int imageKey = getResources().getIdentifier("f" + 14, "drawable", getPackageName());//код картинки
-        Map<String, Integer> allImages = new HashMap<>();
+        cardItems = new ArrayList<>();
+        //String draId = getResources().getResourceEntryName(R.drawable.f14);//имя картинки
+        //int imageKey = getResources().getIdentifier("f" + 14, "drawable", getPackageName());//код картинки
+        allImages = new HashMap<>();
         for (int i = 0; i < 238; i++) {
             if (getResources().getIdentifier("f" + i, "drawable", getPackageName()) != 0) {
                 allImages.put("" + i, getResources().getIdentifier("f" + i, "drawable", getPackageName()));
@@ -49,18 +59,7 @@ public class QuestList extends AppCompatActivity {
             }
         }
 
-
-//            int[] myImageList = new int[]{R.drawable.f14};
-        Log.d("shoow", allImages + "");
-        Log.d("shoow", allImages.size() + "");
-
-
-        recyclerView = findViewById(R.id.recyclerView);
-        adapter = new AdapterForQuestList(cardItems, this);
-        layoutManager = new LinearLayoutManager(this);
-
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(layoutManager);
+        installAdapter();
 
     }
 
@@ -88,5 +87,49 @@ public class QuestList extends AppCompatActivity {
     }
 
 
+    public void search(View view) {
+        String searchT = searchET.getText().toString();
+        for (int i = 0; i < 238; i++) {
+            if(allImages.get(""+i)!=null){
+                for(String key : allImages.keySet()){
+                    if(key.equals(searchT)){
+                        cardItems.clear();
+                        cardItems.add(new CardItem(allImages.get(""+key), key));
+                    }
+                }
+            }else{
+                cardItems.clear();
+            }
+        }
+        installAdapter();
+        backBTN.setVisibility(View.VISIBLE);
+
+
+    }
+    private void installAdapter(){
+        adapter = new AdapterForQuestList(cardItems, this);
+        layoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
+    }
+
+    public void back(View view) {
+        cardItems.clear();
+        for (int i = 0; i < 238; i++) {
+            if (getResources().getIdentifier("f" + i, "drawable", getPackageName()) != 0) {
+                allImages.put("" + i, getResources().getIdentifier("f" + i, "drawable", getPackageName()));
+            } else {
+            }
+        }
+        for (int i = 0; i < 238; i++) {
+            if (allImages.get("" + i) != null) {
+                cardItems.add(new CardItem(allImages.get("" + i), "" + i));
+            } else {
+            }
+        }
+        installAdapter();
+        backBTN.setVisibility(View.GONE);
+    }
 }
 

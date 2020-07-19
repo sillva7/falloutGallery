@@ -7,6 +7,10 @@
     <string name="added">ADDED</string>
     <string name="removed">REMOVED</string>
     <string name="contacts">Contacts</string>
+    <string name="search">Search</string>
+    <string name="show_all_quests">Show All Quests</string>
+
+
 
     <string name="about">This programm for Fallout table game. Easiest way to form your quest pool.
 \nYou can tell my how to improve this app by text me:
@@ -17,5 +21,4 @@
 
 
     \nFeel free to contact, beginner developer, Sillva </string>
-    <string name="search">Search</string>
 </resources>
