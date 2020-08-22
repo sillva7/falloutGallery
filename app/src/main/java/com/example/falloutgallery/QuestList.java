@@ -45,16 +45,16 @@ public class QuestList extends AppCompatActivity {
         cardItems = new ArrayList<>();
         //String draId = getResources().getResourceEntryName(R.drawable.f14);//имя картинки
         //int imageKey = getResources().getIdentifier("f" + 14, "drawable", getPackageName());//код картинки
-        allImages = new HashMap<>();
+        allImages = new HashMap<>();//мап нужен чтобы сделать возможность поиска в дальнейшем
         for (int i = 0; i < 238; i++) {
             if (getResources().getIdentifier("f" + i, "drawable", getPackageName()) != 0) {
-                allImages.put("" + i, getResources().getIdentifier("f" + i, "drawable", getPackageName()));
+                allImages.put("" + i, getResources().getIdentifier("f" + i, "drawable", getPackageName()));//закладываем в мап кей: Имя картинки. Валуе: Путь до картинки
             } else {
             }
         }
         for (int i = 0; i < 238; i++) {
             if (allImages.get("" + i) != null) {
-                cardItems.add(new CardItem(allImages.get("" + i), "" + i));
+                cardItems.add(new CardItem(allImages.get("" + i), "" + i));//создаём новые объект, первый арг: путь до картинки. Второй арг: название картинки
             } else {
             }
         }
