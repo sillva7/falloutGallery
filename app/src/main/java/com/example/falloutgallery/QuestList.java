@@ -106,7 +106,7 @@ public class QuestList extends AppCompatActivity {
 
 
     }
-    private void installAdapter(){
+    private void installAdapter(){//мб весь этот целый метод можно было заменить одним notifyDataSetChanged  в сеттере адаптера?
         adapter = new AdapterForQuestList(cardItems, this);
         layoutManager = new LinearLayoutManager(this);
 
